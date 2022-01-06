@@ -7,12 +7,12 @@ class ControladorUsuarios{
             if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
                 preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
                 $encriptar = ($_POST["ingPassword"]);
-                $tabla = "usuario";
-                $item = "login";
+                $tabla = "usuarios";
+                $item = "usuario";
                 $valor = $_POST["ingUsuario"];
                 $respuesta = ModeloUsuarios::MdlMostrarusuarios ($tabla, $item, $valor);
                 
-                if(is_array($respuesta) && $respuesta["login"] == $_POST["ingUsuario"] && $respuesta["clave"] == $encriptar){
+                if(is_array($respuesta) && $respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
 
                     $_SESSION["iniciarSesion"] = "ok";
 
