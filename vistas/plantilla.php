@@ -25,6 +25,7 @@ session_start();
   <link rel="stylesheet" href="vistas/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
 
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="vistas/plugins/iCheck-bootstrap/icheck-bootstrap.min.css">
@@ -129,6 +130,6 @@ session_start();
 <script src="vistas/js/categorias.js"></script>
 <script src="vistas/js/productos.js"></script>
 <!-- SweetAlert 2 -->
-<script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
+
 </body>
 </html>

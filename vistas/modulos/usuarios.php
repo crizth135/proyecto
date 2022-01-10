@@ -28,6 +28,9 @@
               Agregar usuario
 
             </button>
+            <br/>
+            <br/>
+            
           </div>
           <div class="card">
             <div class="card-header">
@@ -125,7 +128,7 @@
 MODAL AGREGAR USUARIO
 ======================================-->
 
-<div id="modalAgregarUsuario" class="modal fade" role="dialog">
+<div id="modalAgregarUsuario" class="modal fade " role="dialog">
   
   <div class="modal-dialog">
 
@@ -137,7 +140,7 @@ MODAL AGREGAR USUARIO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#3c8dbc; color:white">
+        <div class="modal-header" style="background:#343A40; color:white">
 
 
           <h4 class="modal-title">Agregar usuario</h4>
@@ -279,9 +282,9 @@ MODAL EDITAR USUARIO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#3c8dbc; color:white">
+        <div class="modal-header" style="background:#343A40; color:white">
 
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
 
           <h4 class="modal-title">Editar usuario</h4>
 
@@ -300,9 +303,9 @@ MODAL EDITAR USUARIO
             <div class="form-group">
               
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
-
+                <div class="input-group-text">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>  
+                </div>
                 <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
 
               </div>
@@ -315,7 +318,10 @@ MODAL EDITAR USUARIO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+                
+                <div class="input-group-text">
+                <span class="input-group-addon"><i class="fa fa-key"></i></span>  
+                </div>
 
                 <input type="text" class="form-control input-lg" id="editarUsuario" name="editarUsuario" value="" readonly>
 
@@ -329,7 +335,10 @@ MODAL EDITAR USUARIO
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+                
+                <div class="input-group-text">
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span>  
+                </div>
 
                 <input type="password" class="form-control input-lg" name="editarPassword" placeholder="Escriba la nueva contraseña">
 
@@ -344,9 +353,9 @@ MODAL EDITAR USUARIO
             <div class="form-group">
               
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-users"></i></span> 
-
+                <div class="input-group-text">
+                  <span class="input-group-addon"><i class="fa fa-users"></i></span>   
+                </div>
                 <select class="form-control input-lg" name="editarPerfil">
                   
                   <option value="" id="editarPerfil"></option>

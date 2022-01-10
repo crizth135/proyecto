@@ -203,7 +203,7 @@ class ControladorUsuarios{
 
 					Swal.fire({
 
-						type: "error",
+						icon: "error",
 						title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
 						showConfirmButton: true,
 						confirmButtonText: "Cerrar"
@@ -344,7 +344,7 @@ class ControladorUsuarios{
 						echo'<script>
 
 							Swal.fire({
-									  type: "error",
+									  icon: "error",
 									  title: "¡La contraseña no puede ir vacía o llevar caracteres especiales!",
 									  showConfirmButton: true,
 									  confirmButtonText: "Cerrar"
@@ -401,7 +401,7 @@ class ControladorUsuarios{
 				echo'<script>
 
 					Swal.fire({
-						  type: "error",
+						  icon: "error",
 						  title: "¡El nombre no puede ir vacío o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
@@ -440,23 +440,25 @@ class ControladorUsuarios{
 			}
 
 			$respuesta = ModeloUsuarios::mdlBorrarUsuario($tabla, $datos);
+			$respuesta == "ok";
 
 			if($respuesta == "ok"){
 
 				echo'<script>
 
 				Swal.fire({
-					  icon: "success,
-					  title: "El usuario ha sido borrado correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
-					  }).then(function(result){
-								if (result.value) {
+					icon: "error",
+					title: "¡El usuario ha sido borrado correctamente",
 
-								window.location = "usuarios";
+				}).then(function(result){
 
-								}
-							})
+					if(result.value){
+					
+						window.location = "usuarios";
+
+					}
+
+				});
 
 				</script>';
 

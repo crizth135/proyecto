@@ -202,9 +202,12 @@ $(".tablas").on("click", ".btnEliminarUsuario", function(){
 	confirmButtonText: 'Confirmar',
 	denyButtonText: `Denegar`,
   }).then((result) => {
-	if (result.isConfirmed) {
+	if(result.value){
+
 		window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
-	  } else if (result.isDenied) {
+  
+	  }
+	  else if (result.isDenied) {
 		Swal.fire('Changes are not saved', '', 'info')
 	  }
   })
