@@ -112,11 +112,9 @@ class ControladorProductos{
 
 					echo'<script>
 
-						swal({
-							  type: "success",
+						Swal.fire({
+							  icon: "success",
 							  title: "El producto ha sido guardado correctamente",
-							  showConfirmButton: true,
-							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
 										if (result.value) {
 
@@ -134,11 +132,9 @@ class ControladorProductos{
 
 				echo'<script>
 
-					swal({
-						  type: "error",
+					Swal.fire({
+						  icon: "error",
 						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
@@ -325,8 +321,8 @@ class ControladorProductos{
 
 				echo'<script>
 
-				swal({
-					  type: "success",
+				Swal.fire({
+					  icon: "success",
 					  title: "El producto ha sido borrado correctamente",
 					  showConfirmButton: true,
 					  confirmButtonText: "Cerrar"

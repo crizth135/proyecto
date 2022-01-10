@@ -449,6 +449,8 @@ class ControladorUsuarios{
 				Swal.fire({
 					icon: "error",
 					title: "¡El usuario ha sido borrado correctamente",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar"
 
 				}).then(function(result){
 

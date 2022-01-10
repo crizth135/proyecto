@@ -44,7 +44,7 @@
             <a href="categorias" class="nav-link">
               <i class="nav-icon fas  fa-th"></i>
               <p>
-                Categoías
+                Categorías
               </p>
             </a>
           </li>

@@ -37,7 +37,7 @@
               <h3 class="card-title">Lista de usuarios</h3>
             </div>
             <div class="card-body">
-              <table  id="example1" class="table table-bordered table-striped tablas">
+              <table  id="tUsuarios" class="table table-bordered table-striped tablas">
               <thead>
               <tr>
                 <th style="width:10px">#</th>

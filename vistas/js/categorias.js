@@ -1,8 +1,7 @@
 /*=============================================
 EDITAR CATEGORIA
 =============================================*/
-$(".tablas").on("click", ".btnEditarCategoria", function(){
-
+$(".btnEditarCategoria").click(function(){
 	var idCategoria = $(this).attr("idCategoria");
 
 	var datos = new FormData();
@@ -27,31 +26,34 @@ $(".tablas").on("click", ".btnEditarCategoria", function(){
 
 
 })
-
 /*=============================================
 ELIMINAR CATEGORIA
 =============================================*/
 $(".tablas").on("click", ".btnEliminarCategoria", function(){
-
 	 var idCategoria = $(this).attr("idCategoria");
 
-	 swal({
+	 Swal.fire({
 	 	title: '¿Está seguro de borrar la categoría?',
-	 	text: "¡Si no lo está puede cancelar la acción!",
-	 	type: 'warning',
-	 	showCancelButton: true,
-	 	confirmButtonColor: '#3085d6',
-	 	cancelButtonColor: '#d33',
-	 	cancelButtonText: 'Cancelar',
-	 	confirmButtonText: 'Si, borrar categoría!'
-	 }).then(function(result){
-
-	 	if(result.value){
+	 	showDenyButton: true,
+		confirmButtonText: 'Confirmar',
+		denyButtonText: `Denegar`,
+	}).then((result) => {
+		if(result.value){
 
 	 		window.location = "index.php?ruta=categorias&idCategoria="+idCategoria;
 
-	 	}
+		}
+		else if (result.isDenied) {
+		  Swal.fire('No se guardaron los cambios', '', 'info')
+		}
+	})
 
-	 })
-
+	 
 })
+$("#tCategorias").DataTable({
+	"responsive": true, "lengthChange": false, "autoWidth": false,
+	"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+}).buttons().container().appendTo('#tCategorias_wrapper .col-md-6:eq(0)');
+
+
+

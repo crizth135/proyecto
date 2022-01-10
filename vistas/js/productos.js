@@ -13,7 +13,7 @@ CARGAR LA TABLA DINÁMICA DE PRODUCTOS
 
 // })
 
-$('.tablaProductos').DataTable( {
+$('#tablaProductos').DataTable( {
     "ajax": "ajax/datatable-productos.ajax.php",
     "deferRender": true,
 	"retrieve": true,
@@ -46,6 +46,8 @@ $('.tablaProductos').DataTable( {
 	}
 
 } );
+
+
 
 /*=============================================
 CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
@@ -200,7 +202,7 @@ $(".nuevaImagen").change(function(){
 EDITAR PRODUCTO
 =============================================*/
 
-$(".tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
+$("#tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
 	
@@ -267,31 +269,30 @@ $(".tablaProductos tbody").on("click", "button.btnEditarProducto", function(){
 ELIMINAR PRODUCTO
 =============================================*/
 
-$(".tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
+$("#tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
 
 	var idProducto = $(this).attr("idProducto");
+	console.log("idproducto",idProducto);
 	var codigo = $(this).attr("codigo");
 	var imagen = $(this).attr("imagen");
 	
-	swal({
+	Swal.fire({
 
-		title: '¿Está seguro de borrar el producto?',
-		text: "¡Si no lo está puede cancelar la accíón!",
-		type: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar producto!'
+		title: '¿Está seguro de borrar la categoría?',
+	 	showDenyButton: true,
+		confirmButtonText: 'Confirmar',
+		denyButtonText: `Denegar`,
         }).then(function(result){
         if (result.value) {
 
         	window.location = "index.php?ruta=productos&idProducto="+idProducto+"&imagen="+imagen+"&codigo="+codigo;
 
         }
+		else if (result.isDenied) {
+			Swal.fire('No se guardaron los cambios', '', 'info')
+		  }
 
 
 	})
 
 })
-	
