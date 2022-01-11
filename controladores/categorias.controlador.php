@@ -155,8 +155,6 @@ class ControladorCategorias{
 					Swal.fire({
 						  icon: "success",
 						  title: "La categoría ha sido borrada correctamente",
-						  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 

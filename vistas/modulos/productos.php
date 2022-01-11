@@ -350,9 +350,7 @@ MODAL EDITAR PRODUCTO
         CABEZA DEL MODAL
         ======================================-->
 
-        <div class="modal-header" style="background:#3c8dbc; color:white">
-
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-header" style="background:#343A40; color:white">
 
           <h4 class="modal-title">Editar producto</h4>
 
@@ -372,9 +370,9 @@ MODAL EDITAR PRODUCTO
             <div class="form-group">
               
               <div class="input-group">
-              
+              <div class="input-group-text">
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-
+              </div>
                 <select class="form-control input-lg"  name="editarCategoria" readonly required>
                   
                   <option id="editarCategoria"></option>
@@ -390,9 +388,9 @@ MODAL EDITAR PRODUCTO
             <div class="form-group">
               
               <div class="input-group">
-              
+              <div class="input-group-text">
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
-
+              </div>              
                 <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly required>
 
               </div>
@@ -404,9 +402,9 @@ MODAL EDITAR PRODUCTO
              <div class="form-group">
               
               <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
-
+              <div class="input-group-text">
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+              </div>    
                 <input type="text" class="form-control input-lg" id="editarDescripcion" name="editarDescripcion" required>
 
               </div>
@@ -418,9 +416,12 @@ MODAL EDITAR PRODUCTO
              <div class="form-group">
               
               <div class="input-group">
+                    <div class="input-group-text">
+                      <span class="input-group-addon"><i class="fa fa-check"></i></span> 
+                    </div>
               
-                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
-
+                
+              
                 <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" required>
 
               </div>
@@ -431,12 +432,13 @@ MODAL EDITAR PRODUCTO
 
              <div class="form-group row">
 
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
+                  
                 
                   <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
-
+                    <div class="input-group-text">
+                      <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
+                    </div>
                     <input type="number" class="form-control input-lg" id="editarPrecioCompra" name="editarPrecioCompra" step="any" min="0" required>
 
                   </div>
@@ -445,11 +447,12 @@ MODAL EDITAR PRODUCTO
 
                 <!-- ENTRADA PARA PRECIO VENTA -->
 
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
                 
                   <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+                    <div class="input-group-text">
+                      <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
+                    </div>
 
                     <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" step="any" min="0" readonly required>
 
@@ -480,9 +483,9 @@ MODAL EDITAR PRODUCTO
                     <div class="input-group">
                       
                       <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
-
-                      <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-
+                        <div class="input-group-text">
+                          <span class="input-group-addon"><i class="fa fa-percent"></i></span>
+                        </div>
                     </div>
 
                   </div>

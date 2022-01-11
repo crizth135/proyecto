@@ -324,8 +324,6 @@ class ControladorProductos{
 				Swal.fire({
 					  icon: "success",
 					  title: "El producto ha sido borrado correctamente",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
 					  }).then(function(result){
 								if (result.value) {
 
