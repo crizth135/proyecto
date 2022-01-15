@@ -38,83 +38,81 @@
             </div>
             <div class="card-body">
               <table  id="tUsuarios" class="table table-bordered table-striped tablas">
-              <thead>
-              <tr>
-                <th style="width:10px">#</th>
-                <th>Nombre</th>
-                <th>Usuario</th>
-                <th>Foto</th>
-                <th>Perfil</th>
-                <th>Estado</th>
-                <th>Último login</th>
-                <th>Acciones</th>
-          
-              </tr> 
-          
-            </thead>
-          
-            <tbody>
-          
-            <?php
-          
-            $item = null;
-            $valor = null;
-          
-            $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-          
-            foreach ($usuarios as $key => $value){
+                <thead>
+                <tr>
+                  <th style="width:10px">#</th>
+                  <th>Nombre</th>
+                  <th>Usuario</th>
+                  <th>Foto</th>
+                  <th>Perfil</th>
+                  <th>Estado</th>
+                  <th>Último login</th>
+                  <th>Acciones</th>
+            
+                </tr> 
+            
+                </thead>
+            
+                <tbody>
               
-              echo ' <tr>
-                      <td>'.($key+1).'</td>
-                      <td>'.$value["nombre"].'</td>
-                      <td>'.$value["usuario"].'</td>';
-          
-                      if($value["foto"] != ""){
-          
-                        echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
-          
-                      }else{
-          
-                        echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
-          
-                      }
-          
-                      echo '<td>'.$value["perfil"].'</td>';
-          
-                      if($value["estado"] != 0){
-          
-                        echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
-          
-                      }else{
-          
-                        echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
-          
-                      }             
-          
-                      echo '<td>'.$value["ultimo_login"].'</td>
-                      <td>
-          
-                        <div class="btn-group">
-                            
-                          <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-edit"></i></button>
-          
-                          <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
-          
-                        </div>  
-          
-                      </td>
-          
-                    </tr>';
-            }
-          
-          
-            ?> 
-          
-            </tbody>
-          
-            </table>
+                <?php
+              
+                $item = null;
+                $valor = null;
+              
+                $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+              
+                foreach ($usuarios as $key => $value){
+                  
+                  echo ' <tr>
+                          <td>'.($key+1).'</td>
+                          <td>'.$value["nombre"].'</td>
+                          <td>'.$value["usuario"].'</td>';
+              
+                          if($value["foto"] != ""){
+              
+                            echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+              
+                          }else{
+              
+                            echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
+              
+                          }
+              
+                          echo '<td>'.$value["perfil"].'</td>';
+              
+                          if($value["estado"] != 0){
+              
+                            echo '<td><button class="btn btn-success btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="0">Activado</button></td>';
+              
+                          }else{
+              
+                            echo '<td><button class="btn btn-danger btn-xs btnActivar" idUsuario="'.$value["id"].'" estadoUsuario="1">Desactivado</button></td>';
+              
+                          }             
+              
+                          echo '<td>'.$value["ultimo_login"].'</td>
+                          <td>
+              
+                            <div class="btn-group">
+                                
+                              <button class="btn btn-warning btnEditarUsuario" idUsuario="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarUsuario"><i class="fa fa-edit"></i></button>
+              
+                              <button class="btn btn-danger btnEliminarUsuario" idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'"><i class="fa fa-times"></i></button>
+              
+                            </div>  
+              
+                          </td>
+              
+                        </tr>';
+                }
+              
+              
+                ?> 
+              
+                </tbody>
+              </table>
             </div>
-    
           </div>
         </div>
       </div>

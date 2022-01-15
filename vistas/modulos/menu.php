@@ -80,7 +80,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="crear-ventas" class="nav-link">
+                <a href="crear-venta" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Crear Venta</p>
                 </a>

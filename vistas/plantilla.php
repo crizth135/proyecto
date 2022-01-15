@@ -124,12 +124,13 @@ session_start();
 <script src="vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="vistas/dist/js/demo.js"></script>
+
 <script src="vistas/js/plantilla.js"></script>
 <script src="vistas/js/usuarios.js"></script>
 <script src="vistas/js/categorias.js"></script>
 <script src="vistas/js/productos.js"></script>
 <script src="vistas/js/clientes.js"></script>
+<script src="vistas/js/ventas.js"></script>
 <!-- SweetAlert 2 -->
 
 </body>

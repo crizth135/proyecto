@@ -278,7 +278,7 @@ $("#tablaProductos tbody").on("click", "button.btnEliminarProducto", function(){
 	
 	Swal.fire({
 
-		title: '¿Está seguro de borrar la categoría?',
+		title: '¿Está seguro de borrar el producto?',
 	 	showDenyButton: true,
 		confirmButtonText: 'Confirmar',
 		denyButtonText: `Denegar`,
