@@ -15,8 +15,6 @@ session_start();
   <link rel="stylesheet" href="vistas/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="vistas/dist/css/adminlte.css">
-  <!-- AdminLTE Skins -->
-  <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -26,19 +24,30 @@ session_start();
   <link rel="stylesheet" href="vistas/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="vistas/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
-
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="vistas/plugins/jqvmap/jqvmap.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="vistas/dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="vistas/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
   <!-- iCheck for checkboxes and radio inputs -->
   <link rel="stylesheet" href="vistas/plugins/iCheck-bootstrap/icheck-bootstrap.min.css">
 
   <!-- sweetalert2 -->
   <link rel="stylesheet" href="vistas/plugins/sweetalert2/sweetalert2.min.css">
-
   
-  <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- chart -->
+  <link rel="stylesheet" href="vistas/plugins/chart.js/Chart.min.css">
+   <!-- summernote -->
+   <link rel="stylesheet" href="vistas/plugins/summernote/summernote-bs4.min.css">
+   <!-- jQuery -->
+<script src="vistas/plugins/jquery/jquery.min.js"></script>
+ <!-- jQuery UI 1.11.4 -->
+<script src="vistas/plugins/jquery-ui/jquery-ui.min.js"></script>
+   
 
-  <!-- iCheck 1.0.1 -->
-  <script src="vistas/plugins/iCheck/icheck.min.js"></script>
 
 
 </head>
@@ -71,6 +80,7 @@ session_start();
         $_GET["ruta"]== "clientes"||
         $_GET["ruta"]== "ventas"||
         $_GET["ruta"]== "crear-venta"||
+        $_GET["ruta"]== "editar-venta"||
         $_GET["ruta"]== "salir"||
         $_GET["ruta"]== "reportes"){
         include_once "modulos/".$_GET["ruta"].".php";
@@ -104,12 +114,14 @@ session_start();
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="vistas/plugins/jquery/jquery.min.js"></script>
+
+ <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
 <!-- Bootstrap 4 -->
 <script src="vistas/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="vistas/dist/js/adminlte.min.js"></script>
+
 <!-- DataTables  & Plugins -->
 <script src="vistas/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="vistas/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -123,6 +135,39 @@ session_start();
 <script src="vistas/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="vistas/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="vistas/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+
+<!-- ChartJS -->
+<script src="vistas/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="vistas/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="vistas/plugins/jqvmap/jquery.vmap.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="vistas/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="vistas/plugins/moment/moment.js"></script>
+<script src="vistas/plugins/moment/moment-with-locales.js"></script>
+<script src="vistas/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="vistas/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="vistas/plugins/summernote/summernote-bs4.min.js"></script> 
+<!-- overlayScrollbars -->
+<script src="vistas/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="vistas/dist/js/adminlte.min.js"></script>
+<script src="vistas/dist/js/pages/dashboard.js"></script>
+
+
+  
+
+   
+     
+
+
+  
 <!-- AdminLTE for demo purposes -->
 
 <script src="vistas/js/plantilla.js"></script>
@@ -131,6 +176,9 @@ session_start();
 <script src="vistas/js/productos.js"></script>
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/ventas.js"></script>
+<script src="vistas/js/reportes.js"></script>
+
+
 <!-- SweetAlert 2 -->
 
 </body>

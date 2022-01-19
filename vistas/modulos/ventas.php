@@ -15,7 +15,6 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
     <!-- Main content -->
     <section class="content">
     <div class="container-fluid">
@@ -34,9 +33,37 @@
           </div>
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Lista de usuarios</h3>
+              <h3 class="card-title ">Lista de usuarios</h3>
+              
+            
+              <button type="button" class="btn btn-info float-right" id="daterange-btn">
+           
+              <span>
+              <i class="fa fa-calendar"></i> 
+
+              <?php
+
+                if(isset($_GET["fechaInicial"])){
+
+                  echo $_GET["fechaInicial"]." - ".$_GET["fechaFinal"];
+                
+                }else{
+                 
+                  echo 'Rango de fecha';
+
+                }
+
+              ?>
+            </span>
+
+            <i class="fa fa-caret-down"></i>
+
+         </button>
+        
             </div>
             <div class="card-body">
+             
+
               <table  id="tUsuarios" class="table table-bordered table-striped tablas">
                 <thead>
                 <tr>
@@ -45,7 +72,6 @@
                   <th>Código factura</th>
                   <th>Cliente</th>
                   <th>Vendedor</th>
-                  <th>Forma de pago</th>
                   <th>Neto</th>
                   <th>Total</th> 
                   <th>Fecha</th>
@@ -58,13 +84,21 @@
                 <tbody>
                 <?php
 
-                  $item = null;
-                  $valor = null;
+                    if(isset($_GET["fechaInicial"])){
 
-                  $respuesta = ControladorVentas::ctrMostrarVentas($item, $valor);
+                      $fechaInicial = $_GET["fechaInicial"];
+                      $fechaFinal = $_GET["fechaFinal"];
 
-                  foreach ($respuesta as $key => $value) {
-                  
+                    }else{
+
+                      $fechaInicial = null;
+                      $fechaFinal = null;
+
+                    }
+
+                    $respuesta = ControladorVentas::ctrRangoFechasVentas($fechaInicial, $fechaFinal);
+
+                    foreach ($respuesta as $key => $value) {
 
                   echo '<tr>
 
@@ -86,7 +120,6 @@
 
                           echo '<td>'.$respuestaUsuario["nombre"].'</td>
 
-                          <td>'.$value["metodo_pago"].'</td>
 
                           <td>$ '.number_format($value["neto"],2).'</td>
 

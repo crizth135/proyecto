@@ -41,11 +41,10 @@
                   <tr>
                   <th style="width:10px">#</th>
                 <th>Nombre</th>
-                <th>Documento ID</th>
+                <th>DNI</th>
                 <th>Email</th>
                 <th>Teléfono</th>
                 <th>Dirección</th>
-                <th>Fecha nacimiento</th> 
                 <th>Total compras</th>
                 <th>Última compra</th>
                 <th>Ingreso al sistema</th>
@@ -79,9 +78,7 @@
 
                             <td>'.$value["telefono"].'</td>
 
-                            <td>'.$value["direccion"].'</td>
-
-                            <td>'.$value["fecha_nacimiento"].'</td>             
+                            <td>'.$value["direccion"].'</td>       
 
                             <td>'.$value["compras"].'</td>
 

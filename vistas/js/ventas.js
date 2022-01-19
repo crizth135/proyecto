@@ -2,12 +2,16 @@
 CARGAR LA TABLA DINÁMICA DE VENTAS
 =============================================*/
 
-$.ajax({
-    url: "ajax/datatable-ventas.ajax.php",
-    success: function (respuesta) {
-        console.log("respuesta", respuesta);
-    },
-});
+// $.ajax({
+
+// 	url: "ajax/datatable-ventas.ajax.php",
+// 	success:function(respuesta){
+
+// 		console.log("respuesta", respuesta);
+
+// 	}
+
+// })//
 
 $(".tablaVentas").DataTable({
     ajax: "ajax/datatable-ventas.ajax.php",
@@ -139,6 +143,8 @@ $(".tablaVentas tbody").on("click", "button.agregarProducto", function () {
             // PONER FORMATO AL PRECIO DE LOS PRODUCTOS
 
             $(".nuevoPrecioProducto").number(true, 2);
+
+            localStorage.removeItem("quitarProducto");
         },
     });
 });
@@ -259,7 +265,7 @@ $(".btnAgregarProducto").click(function () {
                     "</div>" +
                     "<!-- Cantidad del producto -->" +
                     '<div class="col-xs-3 ingresoCantidad">' +
-                    '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="1" stock nuevoStock required>' +
+                    '<input type="number" class="form-control nuevaCantidadProducto" name="nuevaCantidadProducto" min="1" value="0" stock nuevoStock required>' +
                     "</div>" +
                     "<!-- Precio del producto -->" +
                     '<div class="col-xs-3 ingresoPrecio" style="padding-left:0px">' +
@@ -394,7 +400,9 @@ $(".formularioVenta").on("change", "input.nuevaCantidadProducto", function () {
 		SI LA CANTIDAD ES SUPERIOR AL STOCK REGRESAR VALORES INICIALES
 		=============================================*/
 
-        $(this).val(1);
+        $(this).val(0);
+
+        $(this).attr("nuevoStock", $(this).attr("stock"));
 
         var precioFinal = $(this).val() * precio.attr("precioReal");
 
@@ -431,6 +439,7 @@ SUMAR TODOS LOS PRECIOS
 
 function sumarTotalPrecios() {
     var precioItem = $(".nuevoPrecioProducto");
+
     var arraySumaPrecio = [];
 
     for (var i = 0; i < precioItem.length; i++) {
@@ -481,7 +490,7 @@ $("#nuevoImpuestoVenta").change(function () {
 FORMATO AL PRECIO FINAL
 =============================================*/
 
-$("#nuevoTotalVenta").number(true, 2);
+// $("#nuevoTotalVenta").number(true, 2);
 
 /*=============================================
 SELECCIONAR MÉTODO DE PAGO
@@ -678,4 +687,132 @@ $(".tablas").on("click", ".btnEliminarVenta", function () {
             window.location = "index.php?ruta=ventas&idVenta=" + idVenta;
         }
     });
+});
+
+/*=============================================
+IMPRIMIR FACTURA
+=============================================*/
+
+$(".tablas").on("click", ".btnImprimirFactura", function () {
+    var codigoVenta = $(this).attr("codigoVenta");
+
+    window.open(
+        "extensiones/tcpdf/pdf/factura.php?codigo=" + codigoVenta,
+        "_blank"
+    );
+});
+
+/*=============================================
+RANGO DE FECHAS
+=============================================*/
+
+$("#daterange-btn").daterangepicker(
+    {
+        ranges: {
+            Hoy: [moment(), moment()],
+            Ayer: [moment().subtract(1, "days"), moment().subtract(1, "days")],
+            "Últimos 7 días": [moment().subtract(6, "days"), moment()],
+            "Últimos 30 días": [moment().subtract(29, "days"), moment()],
+            "Este mes": [moment().startOf("month"), moment().endOf("month")],
+            "Último mes": [
+                moment().subtract(1, "month").startOf("month"),
+                moment().subtract(1, "month").endOf("month"),
+            ],
+        },
+        startDate: moment(),
+        endDate: moment(),
+    },
+    function (start, end) {
+        $("#daterange-btn span").html(
+            start.format("MMMM D, YYYY") + " - " + end.format("MMMM D, YYYY")
+        );
+
+        var fechaInicial = start.format("YYYY-MM-DD");
+
+        var fechaFinal = end.format("YYYY-MM-DD");
+
+        var capturarRango = $("#daterange-btn span").html();
+
+        localStorage.setItem("capturarRango", capturarRango);
+
+        window.location =
+            "index.php?ruta=ventas&fechaInicial=" +
+            fechaInicial +
+            "&fechaFinal=" +
+            fechaFinal;
+    }
+);
+
+/*=============================================
+CANCELAR RANGO DE FECHAS
+=============================================*/
+
+$(".daterangepicker.opensright .drp-buttons .cancelBtn").on(
+    "click",
+    function () {
+        localStorage.removeItem("capturarRango");
+        localStorage.clear();
+        window.location = "ventas";
+    }
+);
+
+/*=============================================
+CAPTURAR HOY
+=============================================*/
+
+$(".daterangepicker.opensright .ranges li").on("click", function () {
+    var textoHoy = $(this).attr("data-range-key");
+
+    if (textoHoy == "Hoy") {
+        var d = new Date();
+
+        var dia = d.getDate();
+        var mes = d.getMonth() + 1;
+        var año = d.getFullYear();
+
+        // if(mes < 10){
+
+        // 	var fechaInicial = año+"-0"+mes+"-"+dia;
+        // 	var fechaFinal = año+"-0"+mes+"-"+dia;
+
+        // }else if(dia < 10){
+
+        // 	var fechaInicial = año+"-"+mes+"-0"+dia;
+        // 	var fechaFinal = año+"-"+mes+"-0"+dia;
+
+        // }else if(mes < 10 && dia < 10){
+
+        // 	var fechaInicial = año+"-0"+mes+"-0"+dia;
+        // 	var fechaFinal = año+"-0"+mes+"-0"+dia;
+
+        // }else{
+
+        // 	var fechaInicial = año+"-"+mes+"-"+dia;
+        //    	var fechaFinal = año+"-"+mes+"-"+dia;
+
+        // }
+
+        dia = ("0" + dia).slice(-2);
+        mes = ("0" + mes).slice(-2);
+
+        var fechaInicial = año + "-" + mes + "-" + dia;
+        var fechaFinal = año + "-" + mes + "-" + dia;
+
+        localStorage.setItem("capturarRango", "Hoy");
+
+        window.location =
+            "index.php?ruta=ventas&fechaInicial=" +
+            fechaInicial +
+            "&fechaFinal=" +
+            fechaFinal;
+    }
+});
+
+/*=============================================
+ABRIR ARCHIVO XML EN NUEVA PESTAÑA
+=============================================*/
+
+$(".abrirXML").click(function () {
+    var archivo = $(this).attr("archivo");
+    window.open(archivo, "_blank");
 });

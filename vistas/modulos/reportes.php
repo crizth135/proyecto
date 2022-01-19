@@ -18,8 +18,47 @@
 
     <!-- Main content -->
     <section class="content">
-      
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+          <?php
 
+          include "reportes/grafico-ventas.php";
+
+          ?>
+          </div>
+          <div class="col-md-6 col-xs-12">
+             
+            <?php
+
+           
+
+            ?>
+
+           </div>
+
+            <div class="col-md-6 col-xs-12">
+             
+            <?php
+
+            
+
+            ?>
+
+           </div>
+
+           <div class="col-md-6 col-xs-12">
+             
+            <?php
+
+           
+
+            ?>
+
+           </div>
+
+        </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>
