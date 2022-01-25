@@ -126,6 +126,7 @@ class ModeloVentas{
 
 	}
 
+
 	/*=============================================
 	RANGO FECHAS
 	=============================================*/	
@@ -134,7 +135,7 @@ class ModeloVentas{
 
 		if($fechaInicial == null){
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY id DESC");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY fecha asc");
 
 			$stmt -> execute();
 

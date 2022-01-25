@@ -33,9 +33,7 @@
           </div>
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title ">Lista de usuarios</h3>
-              
-            
+              <h3 class="card-title ">Tabla de ventas</h3>
               <button type="button" class="btn btn-info float-right" id="daterange-btn">
            
               <span>
@@ -58,7 +56,7 @@
 
             <i class="fa fa-caret-down"></i>
 
-         </button>
+            </button>
         
             </div>
             <div class="card-body">
