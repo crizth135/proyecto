@@ -16,113 +16,36 @@ $totalVentas = ControladorProductos::ctrMostrarSumaVentas();
 PRODUCTOS MÁS VENDIDOS
 ======================================-->
 
-<div class="box box-default">
 	
-	<div class="box-header with-border">
-  
-      <h3 class="box-title">Productos más vendidos</h3>
 
-    </div>
 
-	<div class="box-body">
     
-      	<div class="row">
 
-	        <div class="col-md-7">
-          <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Donut Chart</h3>
+	  
+<div class="card card-danger">
+    <div class="card-header">
+      <h3 class="card-title">Productos más vendidos</h3>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
-                <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 360px;" width="360" height="250" class="chartjs-render-monitor"></canvas>
-              </div>
-              <!-- /.card-body -->
-            </div>
-
-	 			<div class="chart-responsive">
-	            
-	            	<canvas id="donutCharty" height="150"></canvas>
-	          
-	          	</div>
-
-	        </div>
-
-		    <div class="col-md-5">
-		      	
-		  	 	<ul class="chart-legend clearfix">
-
-		  	 	<?php
-
-					for($i = 0; $i < 10; $i++){
-
-					echo ' <li><i class="fa fa-circle-o text-'.$colores[$i].'"></i> '.$productos[$i]["descripcion"].'</li>';
-
-					}
-
-
-		  	 	?>
-
-
-		  	 	</ul>
-
-		    </div>
-
-		</div>
-
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-tool" data-card-widget="remove">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
-
-    <div class="box-footer no-padding">
-    	
-		<ul class="nav nav-pills nav-stacked">
-			
-			 <?php
-
-          	for($i = 0; $i <5; $i++){
-			
-          		echo '<li>
-						 
-						 <a>
-
-						 <img src="'.$productos[$i]["imagen"].'" class="img-thumbnail" width="60px" style="margin-right:10px"> 
-						 '.$productos[$i]["descripcion"].'
-
-						 <span class="pull-right text-'.$colores[$i].'">   
-						 '.ceil($productos[$i]["ventas"]*100/$totalVentas["total"]).'%
-						 </span>
-							
-						 </a>
-
-      				</li>';
-
-			}
-
-			?>
-
-
-		</ul>
-
+    <div class="card-body"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+      <canvas id="donutChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 360px;" width="360" height="250" class="chartjs-render-monitor"></canvas>
     </div>
-
+    <!-- /.card-body -->
 </div>
 
-<?php
 
-for($i = 0; $i < 10; $i++){
+		    
 
-  echo"'".$productos[$i]["descripcion"]."',";
 
-}
-  
- ?>
+
 
 <script>
   $(function () {

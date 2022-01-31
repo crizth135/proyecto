@@ -64,7 +64,7 @@
              
             <?php
 
-            
+              include "reportes/vendedores.php";
 
             ?>
 
@@ -74,7 +74,7 @@
              
             <?php
 
-           
+              include "reportes/compradores.php";
 
             ?>
 

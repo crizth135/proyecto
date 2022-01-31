@@ -219,7 +219,7 @@ MODAL AGREGAR PRODUCTO
                         
                         <input type="checkbox" class="minimal porcentaje" checked>
                         Utilizar procentaje
-                      </label>
+                      </label> 
 
                     </div>
 
@@ -504,6 +504,5 @@ MODAL EDITAR PRODUCTO
   $eliminarProducto -> ctrEliminarProducto();
 
 ?>      
-
 
 

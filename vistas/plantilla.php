@@ -32,8 +32,8 @@ session_start();
   <link rel="stylesheet" href="vistas/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
   <link rel="stylesheet" href="vistas/plugins/daterangepicker/daterangepicker.css">
-  <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="vistas/plugins/iCheck-bootstrap/icheck-bootstrap.min.css">
+ <!-- iCheck for checkboxes and radio inputs -->
+ <link rel="stylesheet" href="vistas/plugins/iCheck/all.css">
 
   <!-- sweetalert2 -->
   <link rel="stylesheet" href="vistas/plugins/sweetalert2/sweetalert2.min.css">
@@ -159,6 +159,8 @@ session_start();
 <!-- AdminLTE App -->
 <script src="vistas/dist/js/adminlte.min.js"></script>
 <script src="vistas/dist/js/pages/dashboard.js"></script>
+<!-- iCheck 1.0.1 -->
+<script src="vistas/plugins/iCheck/icheck.js"></script>
 
 
   

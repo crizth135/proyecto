@@ -256,7 +256,7 @@ class ControladorProductos{
 
 					echo'<script>
 
-						swal({
+					Swal.fire({icon: "success",
 							  type: "success",
 							  title: "El producto ha sido editado correctamente",
 							  showConfirmButton: true,
