@@ -8,7 +8,7 @@ class ModeloProductos{
 	MOSTRAR PRODUCTOS
 	=============================================*/
 
-	static public function mdlMostrarProductos($tabla, $item, $valor){
+	static public function mdlMostrarProductos($tabla, $item, $valor, $orden){
 
 		if($item != null){
 
@@ -22,7 +22,7 @@ class ModeloProductos{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY $orden DESC");
 
 			$stmt -> execute();
 
@@ -121,6 +121,9 @@ class ModeloProductos{
 		$stmt = null;
 
 	}
+		/*=============================================
+	ACTUALIZAR PRODUCTO
+	=============================================*/
 	static public function mdlActualizarProducto($tabla, $item1, $valor1, $valor){
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET $item1 = :$item1 WHERE id = :id");

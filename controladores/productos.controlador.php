@@ -6,11 +6,11 @@ class ControladorProductos{
 	MOSTRAR PRODUCTOS
 	=============================================*/
 
-	static public function ctrMostrarProductos($item, $valor){
+	static public function ctrMostrarProductos($item, $valor, $orden){
 
 		$tabla = "productos";
 
-		$respuesta = ModeloProductos::mdlMostrarProductos($tabla, $item, $valor);
+		$respuesta = ModeloProductos::mdlMostrarProductos($tabla, $item, $valor, $orden);
 
 		return $respuesta;
 
@@ -37,7 +37,7 @@ class ControladorProductos{
 
 			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
-					list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
+					list($ancho, $alto) = getimagesize(isset($_FILES["nuevaImagen"]["tmp_name"]));
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
@@ -99,6 +99,7 @@ class ControladorProductos{
 				$tabla = "productos";
 
 				$datos = array("id_categoria" => $_POST["nuevaCategoria"],
+							   "codigo" => $_POST["nuevoCodigo"],
 							   "descripcion" => $_POST["nuevaDescripcion"],
 							   "stock" => $_POST["nuevoStock"],
 							   "precio_compra" => $_POST["nuevoPrecioCompra"],
@@ -111,9 +112,11 @@ class ControladorProductos{
 
 					echo'<script>
 
-						Swal.fire({
+					Swal.fire({
 							  icon: "success",
 							  title: "El producto ha sido guardado correctamente",
+							  showConfirmButton: true,
+							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
 										if (result.value) {
 
@@ -131,9 +134,11 @@ class ControladorProductos{
 
 				echo'<script>
 
-					Swal.fire({
+				Swal.fire({
 						  icon: "error",
 						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
@@ -256,8 +261,8 @@ class ControladorProductos{
 
 					echo'<script>
 
-					Swal.fire({icon: "success",
-							  type: "success",
+					Swal.fire({
+							  icon: "success",
 							  title: "El producto ha sido editado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
@@ -278,8 +283,8 @@ class ControladorProductos{
 
 				echo'<script>
 
-					swal({
-						  type: "error",
+				Swal.fire({
+						  icon: "error",
 						  title: "¡El producto no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
@@ -323,6 +328,8 @@ class ControladorProductos{
 				Swal.fire({
 					  icon: "success",
 					  title: "El producto ha sido borrado correctamente",
+					  showConfirmButton: true,
+					  confirmButtonText: "Cerrar"
 					  }).then(function(result){
 								if (result.value) {
 
@@ -338,6 +345,11 @@ class ControladorProductos{
 
 
 	}
+
+	/*=============================================
+	MOSTRAR SUMA VENTAS
+	=============================================*/
+
 	static public function ctrMostrarSumaVentas(){
 
 		$tabla = "productos";
@@ -347,5 +359,6 @@ class ControladorProductos{
 		return $respuesta;
 
 	}
+
 
 }

@@ -24,6 +24,7 @@ class ControladorClientes{
 					           "telefono"=>$_POST["nuevoTelefono"],
 					           "direccion"=>$_POST["nuevaDireccion"],
 					           "fecha_nacimiento"=>$_POST["nuevaFechaNacimiento"]);
+						
 
 			   	$respuesta = ModeloClientes::mdlIngresarCliente($tabla, $datos);
 
@@ -31,8 +32,8 @@ class ControladorClientes{
 
 					echo'<script>
 
-					swal({
-						  type: "success",
+					Swal.fire({
+						icon: "success",
 						  title: "El cliente ha sido guardado correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
@@ -52,8 +53,8 @@ class ControladorClientes{
 
 				echo'<script>
 
-					swal({
-						  type: "error",
+				Swal.fire({
+						  icon: "error",
 						  title: "¡El cliente no puede ir vacío o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
@@ -119,8 +120,8 @@ class ControladorClientes{
 
 					echo'<script>
 
-					swal({
-						  type: "success",
+					Swal.fire({
+						  icon: "success",
 						  title: "El cliente ha sido cambiado correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
@@ -140,8 +141,8 @@ class ControladorClientes{
 
 				echo'<script>
 
-					swal({
-						  type: "error",
+					Swal.fire({
+						  icon: "error",
 						  title: "¡El cliente no puede ir vacío o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"

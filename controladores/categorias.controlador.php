@@ -14,7 +14,7 @@ class ControladorCategorias{
 
 				$tabla = "categorias";
 
-				$datos = $_POST["nuevaCategoria"];
+				$datos = ["nuevaCategoria"];
 
 				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
 
@@ -89,6 +89,7 @@ class ControladorCategorias{
 
 				$datos = array("categoria"=>$_POST["editarCategoria"],
 							   "id"=>$_POST["idCategoria"]);
+							   
 
 				$respuesta = ModeloCategorias::mdlEditarCategoria($tabla, $datos);
 
@@ -97,7 +98,7 @@ class ControladorCategorias{
 					echo'<script>
 
 					Swal.fire({
-						  type: "success",
+						  icon: "succes",
 						  title: "La categoría ha sido cambiada correctamente",
 						  }).then(function(result){
 									if (result.value) {
@@ -117,7 +118,7 @@ class ControladorCategorias{
 				echo'<script>
 
 					Swal.fire({
-						  type: "error",
+						  icon: "error",
 						  title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
 						  }).then(function(result){
 							if (result.value) {

@@ -100,7 +100,7 @@ class ControladorUsuarios{
 
 				if(isset($_FILES["nuevaFoto"]["tmp_name"])){
 
-					list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
+					list($ancho, $alto) = getimagesize(isset($_FILES["nuevaFoto"]["tmp_name"]));
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
@@ -169,56 +169,53 @@ class ControladorUsuarios{
 					           "perfil" => $_POST["nuevoPerfil"],
 					           "foto"=>$ruta);
 
+
+		
+
+
 				$respuesta = ModeloUsuarios::mdlIngresarUsuario($tabla, $datos);
 			
 				if($respuesta == "ok"){
 
-					echo '<script>
+					echo'<script>
 
 					Swal.fire({
 						icon: "success",
-						title: "¡El usuario ha sido guardado correctamente!",
+						  title: "El usuario ha sido guardado correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
 
-					}).then(function(result){
+									window.location = "usuarios";
 
-						if(result.value){
-						
-							window.location = "usuarios";
-
-						}
-
-					});
-				
+									}
+								})
 
 					</script>';
 
-
-				}	
-
+				}
 
 			}else{
 
-				echo '<script>
+				echo'<script>
 
-					Swal.fire({
+				Swal.fire({
+						  icon: "error",
+						  title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
 
-						icon: "error",
-						title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
-						showConfirmButton: true,
-						confirmButtonText: "Cerrar"
-
-					}).then(function(result){
-
-						if(result.value){
-						
 							window.location = "usuarios";
 
-						}
+							}
+						})
 
-					});
-				
+			  	</script>';
 
-				</script>';
+
 
 			}
 
@@ -378,7 +375,7 @@ class ControladorUsuarios{
 					echo'<script>
 
 					Swal.fire({
-						  type: "success",
+						  icon: "success",
 						  title: "El usuario ha sido editado correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
