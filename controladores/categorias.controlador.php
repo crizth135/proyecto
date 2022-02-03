@@ -14,7 +14,7 @@ class ControladorCategorias{
 
 				$tabla = "categorias";
 
-				$datos = ["nuevaCategoria"];
+				$datos = $_POST["nuevaCategoria"];
 
 				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
 
