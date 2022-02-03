@@ -108,15 +108,16 @@
                           $valorCliente = $value["id_cliente"];
 
                           $respuestaCliente = ControladorClientes::ctrMostrarClientes($itemCliente, $valorCliente);
+                          
 
-                          echo '<td>'.$respuestaCliente["nombre"].'</td>';
+                          echo '<td>'.$respuestaCliente["nombre"]??= '<p style="color:red">eliminado</p >'.'</td>';
 
                           $itemUsuario = "id";
                           $valorUsuario = $value["id_vendedor"];
 
                           $respuestaUsuario = ControladorUsuarios::ctrMostrarUsuarios($itemUsuario, $valorUsuario);
 
-                          echo '<td>'.$respuestaUsuario["nombre"].'</td>
+                          echo '<td>'.$respuestaUsuario["nombre"]??= '<p style="color:red">eliminado</p >'.'</td>
 
 
                           <td>$ '.number_format($value["neto"],2).'</td>
@@ -131,7 +132,7 @@
                                 
                               <button class="btn btn-info"><i class="fa fa-print"></i></button>
 
-                              <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-warning btnEditarVenta" idVenta="'.$value["id"].'"><i class="fa fa-edit"></i></button>
 
                               <button class="btn btn-danger btnEliminarVenta" idVenta="'.$value["id"].'"><i class="fa fa-times"></i></button>
 

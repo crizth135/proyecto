@@ -41,6 +41,14 @@ class TablaProductos{
 
 		  	$categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
+
+			$hh =  "<td>".$categorias['categoria']??= "<p style='color: red; display:inline'>eliminado</p >"."</td>";
+
+		
+			
+
+		
+
 		  	/*=============================================
  	 		STOCK
   			=============================================*/ 
@@ -70,7 +78,7 @@ class TablaProductos{
 			      "'.$imagen.'",
 			      "'.$productos[$i]["codigo"].'",
 			      "'.$productos[$i]["descripcion"].'",
-			      "'.$categorias["categoria"].'",
+			      "'.$hh.'",
 			      "'.$stock.'",
 			      "'.$productos[$i]["precio_compra"].'",
 			      "'.$productos[$i]["precio_venta"].'",
