@@ -37,7 +37,7 @@ class ControladorProductos{
 
 			   	if(isset($_FILES["nuevaImagen"]["tmp_name"])){
 
-					list($ancho, $alto) = getimagesize(isset($_FILES["nuevaImagen"]["tmp_name"]));
+					list($ancho, $alto) = getimagesize($_FILES["nuevaImagen"]["tmp_name"]);
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
@@ -109,7 +109,6 @@ class ControladorProductos{
 				$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
 
 				if($respuesta == "ok"){
-
 					echo'<script>
 
 					Swal.fire({

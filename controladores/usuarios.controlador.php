@@ -99,9 +99,9 @@ class ControladorUsuarios{
 
 				$ruta = "";
 
-				if(isset($_FILES["nuevaFoto"]["tmp_name"])){
+				if($_FILES["nuevaFoto"]["tmp_name"]){
 
-					list($ancho, $alto) = getimagesize(isset($_FILES["nuevaFoto"]["tmp_name"]));
+					list($ancho, $alto) = getimagesize($_FILES["nuevaFoto"]["tmp_name"]);
 
 					$nuevoAncho = 500;
 					$nuevoAlto = 500;
